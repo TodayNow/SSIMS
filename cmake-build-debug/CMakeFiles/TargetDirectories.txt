@@ -1,0 +1,3 @@
+/Users/iokey/CLionProjects/SSIMS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/iokey/CLionProjects/SSIMS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/iokey/CLionProjects/SSIMS/cmake-build-debug/CMakeFiles/SSIMS.dir
