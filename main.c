@@ -5,7 +5,6 @@
 #include "Header/Struct.h"//结构体
 #include "Header/SSIMSRW.h"//项目输入输出
 #include "Header/Sort.h"//并归排序
-
 //全局变量
 int choice1;//第一次选择
 int choice2;//第二次选择
@@ -78,6 +77,8 @@ void InputBasic()
     FILE *Basic_DB=fopen("StuBasDB.txt","a+");//打开数据文件，以追加的方式写入
     if(Basic == NULL || Basic_DB == NULL)
         printf("打开文件失败！");
+    StuBas *end=(StuBas *) malloc(sizeof(StuGra));
+    temp->next=end;//尾节点
     WriteBasic(Basic,Basic_DB,head);//链表全部写入文件
     printf("数据录入成功！\n返回主菜单(U)或退出(E)\n");
     char ant_key;
@@ -159,6 +160,8 @@ void InputGrade()
     FILE *Grade_DB=fopen("StuGraDB.txt","a+");//打开数据文件，以追加的方式写入
     if(Grade == NULL || Grade_DB == NULL)
         printf("打开文件失败！");
+    StuGra *end=(StuGra *) malloc(sizeof(StuGra));
+    temp->next=end;//尾节点
     WriteGrade(Grade,Grade_DB,head);//链表全部写入文件
     printf("数据录入成功！\n返回主菜单(U)或退出(E)\n");
     char ant_key;
@@ -421,6 +424,11 @@ void SortBasic()
             printf("学号：%lld\n姓名：%s\n性别：%s\n宿舍：%s\n电话：%lld\n\n",NewHead->stu_id,NewHead->name,NewHead->gender,NewHead->dom_id,NewHead->tel);
         NewHead=NewHead->next;
     }
+    printf("排序结束，请按U并回车返回主菜单……\n");
+    fflush(stdin);
+    char any_keys;
+    any_keys=getchar();
+    FirstMenu();
 }
 
 void SortGrade()
@@ -435,6 +443,11 @@ void SortGrade()
                    NewHead->grade_final,NewHead->credit);
         NewHead=NewHead->next;
     }
+    printf("排序结束，请按U并回车返回主菜单……\n");
+    fflush(stdin);
+    char any_keys;
+    any_keys=getchar();
+    FirstMenu();
 }
 
 void Delete()
